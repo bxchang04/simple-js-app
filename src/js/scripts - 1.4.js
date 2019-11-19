@@ -30,6 +30,6 @@ for(var i = 0; i < repository.length; i++){
     }
 }
 
-// repository.forEach(function(pokemon)){
-//     console.log(repository[pokemon]);
-// }
+repository.forEach(function(pokemon)){
+    console.log(repository[pokemon]);
+}
