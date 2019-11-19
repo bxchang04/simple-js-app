@@ -30,6 +30,25 @@ for(var i = 0; i < repository.length; i++){
     }
 }
 
-repository.forEach(function(pokemon) {
+repository.forEach(function(pokemon) { //note to self - forEach takes var on left of forEach and uses that as the parameter in the function. Parameter name can be anything -- in this case its pokemon. This is called a nameless function, and its more succinct than declaring a loopBackFunction in the alternate way.
   console.log(repository[pokemon]);
+});
+
+//code block above didn't work, so I experimented with another format
+repository.forEach(function(repo) {
+  if (repo.height > 1.5) {
+    document.write(
+      "<p>" +
+        repo.name +
+        "(" +
+        repo.height +
+        "- Wow, that's big!) " +
+        repo.types +
+        "</p>"
+    );
+  } else {
+    document.write(
+      "<p>" + repo.name + "(" + repo.height + ") " + repo.types + "</p>"
+    );
+  }
 });
