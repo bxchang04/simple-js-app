@@ -21,7 +21,7 @@ var repository = [
     }
 ];
 
-for(var i = 0; i < repository[i].length; i++){
+for(var i = 0; i < repository.length; i++){
     if(repository[i].height > 1.5){
         document.write("<p>" + repository[i].name + "(" + repository[i].height + ") - Wow, that's big!" + "</p>");
     }
@@ -30,7 +30,6 @@ for(var i = 0; i < repository[i].length; i++){
     }
 }
 
-repository.forEach(function(pokemon)){
-    console.log(repository[pokemon]);
-}
-arstarst;
+// repository.forEach(function(pokemon)){
+//     console.log(repository[pokemon]);
+// }
