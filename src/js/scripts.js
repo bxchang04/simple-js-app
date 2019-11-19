@@ -34,7 +34,17 @@ repository.forEach(function(pokemon) { //note to self - forEach takes var on lef
   console.log(repository[pokemon]);
 });
 
-//code block above didn't work, so I experimented with another format
+/*code block above didn't work, so I experimented with another format.
+Also I found this prompt to be too vague:
+
+Part 2: forEach Loops
+
+Use a forEach function to loop over the Pokémon in your repository array
+ in order to print the details of each one.
+ question: what should the format be? Is the code below sufficient? Again, prompt sounds vague.
+
+*/
+
 repository.forEach(function(repo) {
   if (repo.height > 1.5) {
     document.write(
