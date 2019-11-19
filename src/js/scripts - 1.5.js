@@ -1,4 +1,4 @@
-var pokemonRepository = (function (pokemonRepository) { //should this be changed to just 'repository'?
+var pokemonRepository = (function (repository) {
     var repository = [
       {
       name: "Bulbasaur",
@@ -16,21 +16,13 @@ var pokemonRepository = (function (pokemonRepository) { //should this be changed
           types: ["fire", "flying"]
       }
     ];
-  
+
     function add(pokemon) {
       repository.push(pokemon);
     }
-  
+
     function getAll() {
       return repository;
-    }
-  
-    function addListItem(pokemon) {
-        //
-    }
-
-    function showDetails(pokemon) {
-        console.log(pokemon);
     }
 
     return {
@@ -39,21 +31,20 @@ var pokemonRepository = (function (pokemonRepository) { //should this be changed
     };
   })();
 
-pokemonRepository.getAll().forEach(function(repository) {
-  if (repository.height > 1.5) {
+pokemonRepository.getAll().forEach(function(pokemon) {
+  if (pokemon.height > 1.5) {
     document.write(
       "<p>" +
-        repository.name +
+        pokemon.name +
         "(" +
-        repository.height +
-        ") - Wow, that's big!" +
+        pokemon.height +
+        "- Wow, that's big!) " +
+        pokemon.types +
         "</p>"
     );
   } else {
     document.write(
-      "<p>" + repository.name + "(" + repository.height + ")" + "</p>"
+      "<p>" + pokemon.name + "(" + pokemon.height + ") " + pokemon.types + "</p>"
     );
   }
-  //console.log(repository[pokemonRepository]);
 });
-
