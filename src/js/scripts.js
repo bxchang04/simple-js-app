@@ -17,17 +17,24 @@ var pokemonRepository = (function (repository) {
       }
     ];
 
-    function add(pokemon) {
+    function add(pokemon) { //only accepts pokemon
       repository.push(pokemon);
     }
 
-    function addListItem(pokemon) {
+    function addListItem(pokemon) { //only accpets pokemon
       var $listItem = document.createElement('li');
       var $button = document.createElement('button');
       $button.innerText = pokemon.name;
-      $button.classList.add('pokemon-name')
+      $button.classList.add('pokemon-name') //is this redundant?
       $listItem.appendChild($button);
       $pokemonList.appendChild($listItem);
+      $button.addEventListener('click', function(pokemon) { //!!!why does this work event without a parameter in the function?
+        showDetails(pokemon);
+      })
+    }
+
+    function showDetails(pokemon) { //only accepts pokemon
+      console.log(pokemon);
     }
 
     function getAll() {
@@ -38,10 +45,11 @@ var pokemonRepository = (function (repository) {
       add: add,
       addListItem: addListItem,
       getAll: getAll
+      //showDetails: showDetails
     };
   })();
-  
+
 var $pokemonList = document.querySelector('ul');
-pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.getAll().forEach(function(pokemon) { //pokemon is placeholder name for each element in repo
+  pokemonRepository.addListItem(pokemon); //what happens if parameter is blank, will it work?
 });
