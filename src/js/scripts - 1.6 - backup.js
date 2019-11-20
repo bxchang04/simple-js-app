@@ -21,27 +21,22 @@ var pokemonRepository = (function (repository) {
       repository.push(pokemon);
     }
 
-    function addListItem(pokemon) {
-      var $listItem = document.createElement('li');
-      var $button = document.createElement('button');
-      $button.innerText = pokemon.name;
-      $button.classList.add('pokemon-name')
-      $listItem.appendChild($button);
-      $pokemonList.appendChild($listItem);
-    }
-
     function getAll() {
       return repository;
     }
 
     return {
       add: add,
-      addListItem: addListItem,
       getAll: getAll
     };
   })();
-  
+
 var $pokemonList = document.querySelector('ul');
 pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem(pokemon);
-});
+  var $listItem = document.createElement('li');
+  var $button = document.createElement('button');
+  $button.innerText = pokemon.name;
+  $button.classList.add('pokemon-name')
+  $listItem.appendChild($button);
+  $pokemonList.appendChild($listItem);
+})
