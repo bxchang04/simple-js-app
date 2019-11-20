@@ -32,88 +32,6 @@ var pokemonRepository = (function() {    //Start of IIFE
     })
   }
 
-/*   //Function to load pokemon list from API
-  function loadList() {
-    return fetch(apiUrl).then(function(response) {
-      return response.json();
-    }).then(function(json) {
-      json.results.forEach(function(item) {
-        var pokemon = {
-          name: item.name,
-          detailsUrl: item.url
-        };
-        add(pokemon);
-      });
-    }).catch(function(e) {
-      console.error(e);
-    })
-  } */
-/* 
-  function loadDetails(item) {
-    var url = item.detailsUrl;
-    return fetch(url).then(function(response) {
-      return response.json();
-    }).then(function(details) {
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.weight = details.weight;
-      item.types = Object.keys(details.types);
-    }).catch(function(e) {
-      console.error(e);
-    })
-  }
-
-  //Function to create reusable modal
-  function createReusableModal() {
-
-    var modal = document.createElement('div');
-    var modalElement1 = document.createElement('div');
-    var modalElement2 = document.createElement('div');
-    modalElement2.classList.add('pokemon-info')
-    modal.classList.add('modal');
-    modal
-
-    var closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    //closeButtonElement.addEventListener('click', hideModal)
-
-    var nameElement = document.createElement('h1');
-    var imageElement = document.createElement('img');
-    imageElement.classList.add('pokemon-img');
-    var heightElement = document.createElement('p');
-
-    modalElement1.appendChild(closeButtonElement);
-    modal.appendChild(modalElement1);
-    modalElement2.appendChild(nameElement);
-    modalElement2.appendChild(imageElement);
-    modalElement2.appendChild(heightElement);
-    modal.appendChild(modalElement2)
-    $modalContainer.appendChild(modal);
-  }
-
-  //Function to show modal for Pokemon data
-  function showModal(item) {
-    console.log('TCL: showModal -> item', item.name.charAt(0).toUpperCase() + item.name.slice(1));
-
-    //create element for Pokemon name
-    var nameElement = document.querySelector('h1');
-    nameElement.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1);
-
-    var imageElement = document.querySelector('.pokemon-img');
-    imageElement.setAttribute('src', item.imageUrl);
-
-    var heightElement = document.querySelector('p');
-    heightElement.innerText = 'Height: ' + item.height;
-
-    $modalContainer.classList.add('is-visible');
-  }
-
-  //Function to hide modal
-  function hideModal() {
-    //var $modalContainer = document.querySelector('#modal-container');
-    $modalContainer.classList.remove('is-visible');
-  } */
 
   //Function to show details of each Pokemon
   function showDetails(item) {
@@ -126,6 +44,7 @@ var pokemonRepository = (function() {    //Start of IIFE
     });
   }
 
+//The event listener should listen to a click. As for its event handler function, call the showDetails function there, passing the pokemon object as a parameter when a Pokémon is clicked. This parameter should be the same parameter as addListItem.
  /*  window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
       hideModal();
