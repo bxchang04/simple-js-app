@@ -52,14 +52,14 @@ h2 {
   background-color: #06afe8;
 }
 
-.modal-content {
+/* .modal-content {
   background: #FCCF00;
 }
 
 .modal-body {
   background: #FCCF00;
   text-align: center;
-}
+} */
 
 .pokemon-list__button {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
