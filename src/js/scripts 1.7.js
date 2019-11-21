@@ -1,3 +1,5 @@
+//to-do - get API to load
+
 var pokemonRepository = (function (repository) {
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -19,45 +21,9 @@ var pokemonRepository = (function (repository) {
   }
 
   function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function() {
-      console.log(item); 
-
-        // Modal content creation
-        var modalContainer = $('.modal-body');
-        // NameElement
-        var nameElement = $('.modal-title').text(
-            item.name.charAt(0).toUpperCase() + item.name.slice(1)
-        );
-        // HeightElement
-        var heightElement = $('<p class="pokemon-height"></p>').text(
-            'Height: ' + item.height + '0 cm'
-        );
-        //WeightElement
-        var weightElement = $('<p class="pokemon-weight"></p>').text(
-            'Weight: ' + item.weight + '00 grams'
-        );
-        //TypeElement
-        var typeElement = $('<p class="pokemon-type"></p>').text(
-            'Type: ' + item.types
-        );
-        // ImageElement
-        var imageElement = $('<img class="pokemon-img">');
-        imageElement.attr('src', item.imageUrl);
-        // Remove content once modal is closed
-        if (modalContainer.children().length) {
-            modalContainer.children().remove();
-        }
-
-        //Append all items to modalBody
-        modalContainer.append(nameElement);
-        modalContainer.append(heightElement);
-        modalContainer.append(weightElement);
-        modalContainer.append(typeElement);
-        modalContainer.append(imageElement);
-    });
+    pokemonRepository.loadDetails(item).then(function () {
+      console.log(item);   });
   }
-
-
 
   function getAll() {
     return repository;
@@ -96,7 +62,7 @@ var pokemonRepository = (function (repository) {
   return {
     add: add,
     getAll: getAll,
-    //search: search,
+    search: search,
     loadList: loadList,
     loadDetails: loadDetails
   };
