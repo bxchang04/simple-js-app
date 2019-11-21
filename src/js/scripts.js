@@ -27,7 +27,7 @@ var pokemonRepository = (function (repository) {
       var $listItem = document.createElement('li');
       var $button = document.createElement('button');
       $button.innerText = pokemon.name;
-      $button.classList.add('pokemon-list') //is this redundant? also changed from pokemon-name
+      $button.classList.add('pokemon-list__button') //changed from pokemon-name
       $listItem.appendChild($button);
       $pokemonList.appendChild($listItem);
       $button.addEventListener('click', function(pokemon) { //!!!why does this work event without a parameter in the function?

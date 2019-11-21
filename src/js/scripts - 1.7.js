@@ -1,4 +1,12 @@
-//to-do - get API to load
+//errors
+// scripts.js:50 Fetch API cannot load file:///C:/Users/1/Documents/GitHub/simple-js-app/src/undefined. URL scheme must be "http" or "https" for CORS request.
+// loadDetails @ scripts.js:50
+// showDetails @ scripts.js:24
+// (anonymous) @ scripts.js:19
+// scripts.js:58 TypeError: Failed to fetch
+//     at Object.loadDetails (scripts.js:50)
+//     at showDetails (scripts.js:24)
+//     at HTMLButtonElement.<anonymous> (scripts.js:19)
 
 var pokemonRepository = (function (repository) {
   var repository = [];
@@ -12,7 +20,7 @@ var pokemonRepository = (function (repository) {
     var $listItem = document.createElement('li');
     var $button = document.createElement('button');
     $button.innerText = pokemon.name;
-    $button.classList.add('pokemon-name') //is this redundant?
+    $button.classList.add('pokemon-list__button') //changed from pokemon-name
     $listItem.appendChild($button);
     $pokemonList.appendChild($listItem);
     $button.addEventListener('click', function(pokemon) { //!!!why does this work event without a parameter in the function?
@@ -61,8 +69,9 @@ var pokemonRepository = (function (repository) {
 
   return {
     add: add,
+    addListItem: addListItem,
     getAll: getAll,
-    search: search,
+    //search: search, // causing error for some reason
     loadList: loadList,
     loadDetails: loadDetails
   };
