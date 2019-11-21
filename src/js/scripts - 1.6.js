@@ -1,4 +1,4 @@
-//to-do - get API to load
+//to-do - manually style buttons and grid layout w/ flex
 
 var pokemonRepository = (function (repository) {
     var repository = [
@@ -27,7 +27,7 @@ var pokemonRepository = (function (repository) {
       var $listItem = document.createElement('li');
       var $button = document.createElement('button');
       $button.innerText = pokemon.name;
-      $button.classList.add('pokemon-name') //is this redundant?
+      $button.classList.add('pokemon-list__button') //changed from pokemon-name
       $listItem.appendChild($button);
       $pokemonList.appendChild($listItem);
       $button.addEventListener('click', function(pokemon) { //!!!why does this work event without a parameter in the function?
