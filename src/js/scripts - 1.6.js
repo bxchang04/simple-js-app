@@ -30,7 +30,7 @@ var pokemonRepository = (function (repository) {
       $button.classList.add('pokemon-list__button') //changed from pokemon-name
       $listItem.appendChild($button);
       $pokemonList.appendChild($listItem);
-      $button.addEventListener('click', function(pokemon) { //!!!why does this work event without a parameter in the function?
+      $button.addEventListener('click', function() { //!!!why does this work event without a parameter in the function? - answered by Jason in submission history
         showDetails(pokemon);
       })
     }
