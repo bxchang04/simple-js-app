@@ -39,42 +39,35 @@ var pokemonRepository = (function () {
   }
 
  // Function to load Pokemon list from API
-  function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        var pokemon = {
-          name: item.name.charAt(0).toUpperCase() + item.name.slice(1),
-          detailsUrl: item.url
-        };
-        add(pokemon);
-      });
-    }).catch(function (e) {
-      /* eslint-disable no-console */
-      console.error(e);
-    })
-  }
+ function loadList() {
+   return fetch(apiUrl).then(function (response) {
+     return response.json();
+   }).then(function (json) {
+     json.results.forEach(function (item) {
+       var pokemon = {
+         name: item.name,
+         detailsUrl: item.url
+       };
+       add(pokemon);
+     });
+   }).catch(function (e) {
+     console.error(e);
+   })
+ }
 
- // Load details of each Pokemon that is clicked
-  function loadDetails(item) {
-    var url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      // Now we add details to the item
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      // item.types = Object.keys(details.types);
-      if (details.types.length == 2 ) {
- 			item.types = [details.types[0].type.name, details.types[1].type.name];
- 		} else {
- 			item.types = [details.types[0].type.name];
- 		}
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
+ function loadDetails(item) {
+   var url = item.detailsUrl;
+   return fetch(url).then(function (response) {
+     return response.json();
+   }).then(function (details) {
+     // Now we add the details to the item
+     item.imageUrl = details.sprites.front_default;
+     item.height = details.height;
+     item.types = Object.keys(details.types);
+   }).catch(function (e) {
+     console.error(e);
+   });
+ }
 
   // Function to show modal for Pokemon data
   var $modalContainer = document.querySelector('#modal-container');
