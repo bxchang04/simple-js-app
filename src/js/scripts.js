@@ -1,4 +1,4 @@
-//this is 1.9 WIP for 1.6, 1/7, or 1.8, please refer to the appropriatley named file.
+//this is 1.8 WIP. For all other assignments, please use the the appropriatley named js file.
 
 // Wraps repository within IIFE
 var pokemonRepository = (function () {
