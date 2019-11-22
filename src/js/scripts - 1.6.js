@@ -53,5 +53,5 @@ var pokemonRepository = (function (repository) {
 
 var $pokemonList = document.querySelector('ul');
 pokemonRepository.getAll().forEach(function(pokemon) { //pokemon is placeholder name for each element in repo
-  pokemonRepository.addListItem(pokemon); //what happens if parameter is blank, will it work?
+  pokemonRepository.addListItem(pokemon); 
 });
