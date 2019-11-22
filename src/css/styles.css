@@ -96,6 +96,16 @@ ul {
   background-color: #06afe8;
 }
 
+/* MODAL START */
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  /* CSS for modal container - add your own desired CSS styles here */
+  display: block;
+}
+
 /* .modal-content {
   background: #FCCF00;
 }
@@ -104,7 +114,7 @@ ul {
   background: #FCCF00;
   text-align: center;
 } */
-
+/* MODAL END */
 
 .pokemon-list__button {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
