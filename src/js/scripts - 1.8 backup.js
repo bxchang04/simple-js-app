@@ -63,12 +63,10 @@ var pokemonRepository = (function () {
  }
 
   // Function to show modal for Pokemon data
-  var $modalContainer = document.querySelector('#modal-container');
-  var dialogPromiseReject; // This can be set later, by showDialog
-
-  function showModal(title, text) {
+  //make sure it is pokemon as object name, not title or item
+  function showModal(pokemon) {
     // Clear all existing modal content
-    $modalContainer.innerHTML = '';
+    $modalContainer.innerHTML = ''; //Bill suggests item.name;
 
     var modal = document.createElement('div');
     modal.classList.add('modal');
@@ -76,45 +74,37 @@ var pokemonRepository = (function () {
     // Add the new modal content
     var closeButtonElement = document.createElement('button');
 
-/*
-    // set ID of button to show-modal Tested, but does not work
-    var element = document.querySelectorAll('button');
-    // convert NodeList into an array
-    // for older browser use [].slice.call(element)
-    Array.from(element)
-      // iterate over the element
-      .forEach(function(ele, i) {
-        // generate and set id
-        ele.setAttribute("id", 'show-modal' + (i + 1));
-    })
-*/
-
     //Execute rest of showModal
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
     closeButtonElement.addEventListener('click', hideModal);
 
-    var titleElement = document.createElement('h1');
-    titleElement.innerText = title;
+    var nameElement = document.createElement('h1'); //try h1-h5
+    // nameElement.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+    nameElement.innerText = pokemon.name;
 
-    var contentElement = document.createElement('p');
-    contentElement.innerText = text;
+    var imageElement = document.createElement('img');
+    imageElement.src = pokemon.imageUrl;
+    imageElement.classList.add('modal-img');
+
+    var heightElement = document.createElement('p');
+    heightElement.innerText = 'Height: ' + pokemon.height + 'm';
+
+    var typesElement = document.createElement('p');
+    typesElement.innerText = 'Type(s): ' + pokemon.types;
 
     modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
+    modal.appendChild(nameElement);
+    modal.appendChild(imageElement);
+    modal.appendChild(heightElement);
+    modal.appendChild(typesElement);
     $modalContainer.appendChild(modal);
 
     $modalContainer.classList.add('is-visible');
   }
 
   function hideModal() {
-    $modalContainer.classList.remove('is-visible');
-
-    if (dialogPromiseReject) {
-      dialogPromiseReject();
-      dialogPromiseRejct = null;
-    }
+    $modalContainer.classList.remove('is-visible'); //!!! bugged
   }
 
   document.querySelector('#modal-container').addEventListener('click', () => { //changed #show-modal to #modal-container. Either way,  won't display, but the change above at least removes the error. Is this conceptually right?

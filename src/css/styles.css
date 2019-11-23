@@ -69,12 +69,12 @@ ul {
 /* Grid fallback */
 .pokemon-list {
   display: inline-block;
-  width: 1fr;
+  /* width: 1fr; */ /*check this with ref code */
 }
 
 .pokemon-list {
   display: grid;
-  grid-auto-columns: minmax(1fr, 100px); /* how do you limit max width? */
+  grid-auto-columns: minmax(100%, 100px); /* how do you limit max width? */
   list-style-type: none;
   text-align: center;
   list-style: none;
@@ -96,25 +96,46 @@ ul {
   background-color: #06afe8;
 }
 
-/* MODAL START  -- in the ordering here ok?? */
 #modal-container {
-  display: none;
-}
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 
-#modal-container.is-visible {
-  /* CSS for modal container - add your own desired CSS styles here */
-  display: block;
-}
+  /* to show it above other content */
+  z-index: 999;
 
-/* .modal-content {
-  background: #FCCF00;
-}
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto;
 
-.modal-body {
-  background: #FCCF00;
+  /* this is used to center the modal */
+  display: grid;
   text-align: center;
-} */
-/* MODAL END */
+}
+
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #777;
+  text-decoration: underline;
+}
 
 .pokemon-list__button {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -146,10 +167,6 @@ ul {
   background-color: #FCCF00;
   opacity: 0.5;
 }
-
-/* .modal-title {
-  font-size: 34px;
-} */
 
 .pokemon-height,
 .pokemon-weight,
