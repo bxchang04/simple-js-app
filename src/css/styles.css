@@ -96,7 +96,7 @@ ul {
   background-color: #06afe8;
 }
 
-/* MODAL START */
+/* MODAL START  -- in the ordering here ok?? */
 #modal-container {
   display: none;
 }

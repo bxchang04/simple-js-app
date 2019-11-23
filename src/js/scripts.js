@@ -31,13 +31,6 @@ var pokemonRepository = (function () {
     });
   }
 
-  // Function to show details of each Pokemon
-  function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function () {
-      showModal(pokemon);
-    });
-  }
-
  // Function to load Pokemon list from API
  function loadList() {
    return fetch(apiUrl).then(function (response) {
@@ -82,6 +75,21 @@ var pokemonRepository = (function () {
 
     // Add the new modal content
     var closeButtonElement = document.createElement('button');
+
+/*
+    // set ID of button to show-modal Tested, but does not work
+    var element = document.querySelectorAll('button');
+    // convert NodeList into an array
+    // for older browser use [].slice.call(element)
+    Array.from(element)
+      // iterate over the element
+      .forEach(function(ele, i) {
+        // generate and set id
+        ele.setAttribute("id", 'show-modal' + (i + 1));
+    })
+*/
+
+    //Execute rest of showModal
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
     closeButtonElement.addEventListener('click', hideModal);
@@ -109,7 +117,7 @@ var pokemonRepository = (function () {
     }
   }
 
-  document.querySelector('#show-modal').addEventListener('click', () => {
+  document.querySelector('#modal-container').addEventListener('click', () => { //changed #show-modal to #modal-container. Either way,  won't display, but the change above at least removes the error. Is this conceptually right?
     showModal('Modal title', 'This is the modal content!');
   });
 
