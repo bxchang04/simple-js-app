@@ -62,8 +62,8 @@ var pokemonRepository = (function () {
    });
  }
 
-  // My Function to show modal for Pokemon data
-  //Bill: make sure it is pokemon as object name, not title or item
+  // Function to show modal for Pokemon data
+  //make sure it is pokemon as object name, not title or item
   function showModal(pokemon) {
     // Clear all existing modal content
     $modalContainer.innerHTML = ''; //Bill suggests item.name;
@@ -103,7 +103,7 @@ var pokemonRepository = (function () {
     $modalContainer.classList.add('is-visible');
   }
 
-  function hideModal() { //!!!why is this missing in submission 2 and 3?
+  function hideModal() {
     $modalContainer.classList.remove('is-visible'); //!!! bugged
   }
 
@@ -140,7 +140,7 @@ var pokemonRepository = (function () {
    loadList: loadList,
    loadDetails: loadDetails,
    showModal: showModal,
-   hideModal: hideModal ////!!!why is this missing in submission 2 and 3?
+   hideModal: hideModal
  };
 })();
 

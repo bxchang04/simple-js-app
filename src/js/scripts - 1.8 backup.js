@@ -62,8 +62,8 @@ var pokemonRepository = (function () {
    });
  }
 
-  // My Function to show modal for Pokemon data
-  //Bill: make sure it is pokemon as object name, not title or item
+  // Function to show modal for Pokemon data
+  //make sure it is pokemon as object name, not title or item
   function showModal(pokemon) {
     // Clear all existing modal content
     $modalContainer.innerHTML = ''; //Bill suggests item.name;
@@ -80,7 +80,7 @@ var pokemonRepository = (function () {
     closeButtonElement.addEventListener('click', hideModal);
 
     var nameElement = document.createElement('h1'); //try h1-h5
-    // nameElement.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1); //learn what this does
+    // nameElement.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1);
     nameElement.innerText = pokemon.name;
 
     var imageElement = document.createElement('img');
@@ -103,7 +103,7 @@ var pokemonRepository = (function () {
     $modalContainer.classList.add('is-visible');
   }
 
-  function hideModal() { //!!!why is this missing in submission 2 and 3?
+  function hideModal() {
     $modalContainer.classList.remove('is-visible'); //!!! bugged
   }
 
@@ -140,7 +140,7 @@ var pokemonRepository = (function () {
    loadList: loadList,
    loadDetails: loadDetails,
    showModal: showModal,
-   hideModal: hideModal ////!!!why is this missing in submission 2 and 3?
+   hideModal: hideModal
  };
 })();
 
