@@ -120,7 +120,7 @@ ul {
 
 /* !!!not sure if this is needed in 1.9 and 1.10 */
 #modal-container.is-visible {
-    display: grid;
+    display: grid; /* 1.10 uses : block; study what : block  is */
   }
 
 .modal {
