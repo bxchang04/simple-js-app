@@ -19,7 +19,7 @@ var pokemonRepository = (function () {
     $button.classList.add('pokemon-list__button') //changed from pokemon-name
     $listItem.appendChild($button);
     $pokemonList.appendChild($listItem);
-    $button.addEventListener('click', function() { //!!!why does this work event without a parameter in the function? - answered by Jason in submission history
+    $button.addEventListener('click', function(pokemon) { //!!!why does this work event without a parameter in the function? - answered by Jason in submission history
       showDetails(pokemon);
     })
   }
@@ -106,10 +106,6 @@ var pokemonRepository = (function () {
   function hideModal() {
     $modalContainer.classList.remove('is-visible'); //!!! bugged
   }
-
-  document.querySelector('#modal-container').addEventListener('click', () => { //changed #show-modal to #modal-container. Either way,  won't display, but the change above at least removes the error. Is this conceptually right?
-    showModal('Modal title', 'This is the modal content!');
-  });
 
   //Modal escape methods - Check this for compatability
   window.addEventListener('keydown', (e) => {
